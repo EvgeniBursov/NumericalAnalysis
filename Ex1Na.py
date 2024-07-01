@@ -1,21 +1,43 @@
 import numpy as np 
 
 def determinantCalculate(matrix):
-    arr = np.array([matrix]) 
+    # Convert the input matrix into a NumPy array.
+    arr = np.array([matrix])
+    # Calculate the determinant of the matrix using NumPy's linear algebra module.
     determinant = np.linalg.det(arr)
+    # Return the calculated determinant.
     return determinant
-#jhjij
+
 
 def calculateNorm(matrix):
+    # Get the size of the matrix (number of rows).
     size = len(matrix)
+
+    # Initialize maxNorm to zero. This will hold the maximum row sum.
     maxNorm = 0
+
+    # Iterate through each row of the matrix.
     for i in range(size):
-        if sum(abs(matrix[i])) > maxNorm:
-            maxNorm = sum(abs(matrix[i]))
+        # Calculate the sum of the absolute values of the elements in the current row.
+        rowSum = sum(abs(element) for element in matrix[i])
+
+        # Update maxNorm if the current rowSum is greater than the current maxNorm.
+        if rowSum > maxNorm:
+            maxNorm = rowSum
+
+    # Return the maximum row sum found, which is the norm of the matrix.
     return maxNorm
 
+
 def calculateCond(matrix, invMatrix):
-    return calculateNorm(matrix)*calculateNorm(invMatrix)
+    # Calculate the norm of the original matrix using the calculateNorm function.
+    normMatrix = calculateNorm(matrix)
+
+    # Calculate the norm of the inverse matrix using the calculateNorm function.
+    normInvMatrix = calculateNorm(invMatrix)
+
+    # Return the product of the norms of the original matrix and its inverse.
+    return normMatrix * normInvMatrix
 
 
 def find_matrix_inverse(matrix):
