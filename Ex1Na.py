@@ -1,13 +1,8 @@
 import numpy as np 
 
-def determinantCalculate(matrix):
-    # Convert the input matrix into a NumPy array.
-    arr = np.array([matrix])
-    # Calculate the determinant of the matrix using NumPy's linear algebra module.
-    determinant = np.linalg.det(arr)
-    # Return the calculated determinant.
-    return determinant
+"""
 
+"""
 
 def calculateNorm(matrix):
     # Get the size of the matrix (number of rows).
@@ -42,7 +37,7 @@ def calculateCond(matrix, invMatrix):
 
 def find_matrix_inverse(matrix):
     """Find the inverse of a non-singular square matrix using elementary row operations."""
-    print(f"=================== Finding the inverse of a non-singular matrix using elementary row operations ===================\n{matrix}\n")
+    print(f"Finding the inverse of matrix using elementary row operations \n{matrix}\n")
     
     if matrix.shape[0] != matrix.shape[1]:
         raise ValueError("Input matrix must be square.")
@@ -65,7 +60,6 @@ def find_matrix_inverse(matrix):
             print(f"Operation {operation_count}: Elementary matrix to make the diagonal element 1:\n{scalar_matrix}\n")
             matrix = np.dot(scalar_matrix, matrix)
             print(f"The matrix after operation {operation_count}:\n{matrix}")
-            print("------------------------------------------------------------------------------------------------------------------")
             identity = np.dot(scalar_matrix, identity)
 
         # Zero out the elements above and below the diagonal
@@ -77,11 +71,8 @@ def find_matrix_inverse(matrix):
                 operation_count += 1
                 print(f"Operation {operation_count}: Elementary matrix for R{j+1} = R{j+1} + ({scalar}R{i+1}):\n{addition_matrix}\n")
                 matrix = np.dot(addition_matrix, matrix)
-                print(f"The matrix after operation {operation_count}:\n{matrix}")
-                print("------------------------------------------------------------------------------------------------------------------")
+                print(f"The matrix after operation {operation_count}:\n{matrix}\n")
                 identity = np.dot(addition_matrix, identity)
-
-    print(f"Total number of operations: {operation_count}")
     return identity
 
 
@@ -94,8 +85,10 @@ if __name__ == '__main__':
 
     try:
         inverMatrix = find_matrix_inverse(matrix)
-        print("\nInverse of matrix A:\n", inverMatrix)
-        #print("=====================================================================================================================")
+        print("\nInverse of matrix:\n", inverMatrix)
+        print("\n Matrix Norm:\n", calculateNorm(matrix))
+        print("\n Inverse Matrix Norm:\n", calculateNorm(inverMatrix))
+        print("\n Matrix and Inverse Matrix COND \n", calculateCond(matrix, inverMatrix))
     except ValueError as e:
         print(str(e))
 
