@@ -4,7 +4,7 @@ def determinantCalculate(matrix):
     arr = np.array([matrix]) 
     determinant = np.linalg.det(arr)
     return determinant
-
+#jhjij
 
 def calculateNorm(matrix):
     size = len(matrix)
