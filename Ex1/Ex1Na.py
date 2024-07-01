@@ -2,7 +2,7 @@ import numpy as np
 
 """
 GitHub Repo:
-
+https://github.com/EvgeniBursov/NumericalAnalysis/tree/main/Ex1
 Evgeni Bursov
 Yael Berko
 """
