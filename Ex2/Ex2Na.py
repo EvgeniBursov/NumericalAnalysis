@@ -1,3 +1,10 @@
+"""
+GitHub Repo:
+https://github.com/EvgeniBursov/NumericalAnalysis/blob/main/Ex2
+
+Evgeni Bursov
+Yael Berko
+"""
 import numpy as np
 
 def find_matrix_inverse(matrix):
