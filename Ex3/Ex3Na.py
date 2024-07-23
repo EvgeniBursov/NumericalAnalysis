@@ -1,6 +1,6 @@
 """
 GitHub Repo:
-
+https://github.com/EvgeniBursov/NumericalAnalysis/tree/main/Ex3
 
 Evgeni Bursov
 Yael Berko
